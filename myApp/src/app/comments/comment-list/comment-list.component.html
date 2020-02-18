@@ -1,0 +1,13 @@
+<mat-accordion multi="true" *ngIf="comments.length > 0">
+  <mat-expansion-panel *ngFor="let comment of comments">
+    <mat-expansion-panel-header>
+      <p> {{comment.title}}</p>
+    </mat-expansion-panel-header>
+    <p> {{comment.content}}</p>
+    <mat-action-row>
+      <a mat-button color = "primary" [routerLink] ="['/edit', comment.id]">Edit</a>
+      <button mat-button (click)="onDelete(comment.id)">Delete</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<p class="info-text mat-body-2" *ngIf="comments.length <= 0 ">NIE MA KOMENTARZY JESZCZE</p>

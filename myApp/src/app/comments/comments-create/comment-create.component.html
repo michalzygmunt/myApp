@@ -1,0 +1,31 @@
+<mat-card>
+  <form (submit)="onSaveComment(commentForm)" #commentForm="ngForm">
+    <mat-form-field>
+      <input
+        matInput
+        type="text"
+        name="title"
+        [ngModel]="comment?.title"
+        required
+        minlength="3"
+        placeholder="Comment Title"
+        #title="ngModel">
+      <mat-error *ngIf="title.invalid">Please enter a comment title.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea
+        matInput
+        rows="4"
+        name="content"
+        [ngModel]="comment?.content"
+        required
+        placeholder="Comment Content"
+        #content="ngModel"></textarea>
+      <mat-error *ngIf="content.invalid">Please enter a comment title.</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit">Save Comment</button>
+  </form>
+</mat-card>
